@@ -13,6 +13,17 @@ class DefaultController extends Controller
         return $this->render('index');
     }
 
+    public function actionService(){
+
+        $locator = \Yii::$app->locator;
+        $cache = $locator->cache;
+
+        $cache->set("test",1);
+
+        print $cache->get("test");
+
+    }
+
     public function actionPath(){
         // псевдонимы путей
         //@yii -путь до папки с фреймворком
