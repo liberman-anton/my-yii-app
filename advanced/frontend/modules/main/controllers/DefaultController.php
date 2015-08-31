@@ -26,7 +26,7 @@ class DefaultController extends Controller
         //@frontend
         //@backend
 
-        print \Yii::getAlias('@webroot');
+        print \Yii::getAlias('@test');
 
     }
 }

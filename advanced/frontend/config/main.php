@@ -6,7 +6,6 @@ $params = array_merge(
     require(__DIR__ . '/params-local.php')
 );
 
-Yii::setAlias('@test', '@frontend/test');
 
 return [
     'id' => 'app-frontend',
