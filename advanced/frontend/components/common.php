@@ -1,17 +1,26 @@
 <?php
-namespace frontend\component;
+namespace frontend\components;
 
 use yii\base\Component;
 
 class Common extends Component{
 
-    public static function sendMail($email,$subject,$body,$name=''){
-        \Yii::$app->mail->compose()
+    const EVENT_NOTIFY = 'notify_admin';
+
+    public function sendMail($email,$subject,$body,$name=''){
+      /*  \Yii::$app->mail->compose()
             ->setFrom([ \Yii::$app->params['supportEmail'] => \Yii::$app->name])
             ->setTo([$email => $name])
             ->setSubject($subject)
             ->setTextBody($body)
-            ->send();
+            ->send();*/
+
+        $this->trigger(self::EVENT_NOTIFY);
+    }
+
+    public function notifyAdmin($event){
+
+        print "Notify Admin";
     }
 
 }

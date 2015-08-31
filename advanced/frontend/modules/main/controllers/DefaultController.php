@@ -2,6 +2,7 @@
 
 namespace app\modules\main\controllers;
 
+use frontend\components\Common;
 use yii\web\Controller;
 
 class DefaultController extends Controller
@@ -21,6 +22,15 @@ class DefaultController extends Controller
         $cache->set("test",1);
 
         print $cache->get("test");
+
+    }
+
+    public function actionEvent(){
+
+        $component = new Common();
+        $component->on(Common::EVENT_NOTIFY,[$component,'notifyAdmin']);
+        $component->sendMail("test@mail.com", "Test", "Test text");
+        $component->off(Common::EVENT_NOTIFY,[$component,'notifyAdmin']);
 
     }
 
