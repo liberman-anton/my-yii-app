@@ -27,7 +27,7 @@ class DefaultController extends Controller
 
     public function actionEvent(){
 
-        $component = new Common();
+        $component = \Yii::$app->common;//new Common();
         $component->on(Common::EVENT_NOTIFY,[$component,'notifyAdmin']);
         $component->sendMail("test@mail.com", "Test", "Test text");
         $component->off(Common::EVENT_NOTIFY,[$component,'notifyAdmin']);
